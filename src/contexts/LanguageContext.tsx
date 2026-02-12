@@ -92,6 +92,12 @@ const translations: Record<Language, Record<string, string>> = {
     // Footer
     "footer.tagline": "From Ahlan to Fluency — Your journey to mastering Arabic starts here.",
     "footer.rights": "All rights reserved.",
+    "nav.teachers": "Teachers",
+    "teachers.title": "Meet Our Teachers",
+    "teachers.subtitle": "Our volunteer teachers are here to help you learn Arabic for free. They offer guidance, conversation practice, and answers to your questions — all at no cost.",
+    "teachers.cta": "Browse the profiles below and reach out to a teacher today!",
+    "teachers.yearsExp": "years of experience",
+    "teachers.email": "Email",
   },
   ar: {
     "nav.home": "الرئيسية",
@@ -165,6 +171,12 @@ const translations: Record<Language, Record<string, string>> = {
     "dashboard.points": "نقاط",
     "footer.tagline": "من أهلاً إلى الطلاقة — رحلتك لإتقان العربية تبدأ هنا.",
     "footer.rights": "جميع الحقوق محفوظة.",
+    "nav.teachers": "المعلمون",
+    "teachers.title": "تعرّف على معلمينا",
+    "teachers.subtitle": "معلمونا المتطوعون هنا لمساعدتك في تعلم العربية مجانًا. يقدمون التوجيه وممارسة المحادثة والإجابة على أسئلتك — بدون أي تكلفة.",
+    "teachers.cta": "تصفح الملفات أدناه وتواصل مع معلم اليوم!",
+    "teachers.yearsExp": "سنوات خبرة",
+    "teachers.email": "بريد إلكتروني",
   },
   tr: {
     "nav.home": "Ana Sayfa",
@@ -238,6 +250,12 @@ const translations: Record<Language, Record<string, string>> = {
     "dashboard.points": "Puan",
     "footer.tagline": "Merhaba'dan Akıcılığa — Arapça öğrenme yolculuğunuz burada başlıyor.",
     "footer.rights": "Tüm hakları saklıdır.",
+    "nav.teachers": "Öğretmenler",
+    "teachers.title": "Öğretmenlerimizle Tanışın",
+    "teachers.subtitle": "Gönüllü öğretmenlerimiz size ücretsiz Arapça öğrenmenizde yardımcı olmak için burada. Rehberlik, konuşma pratiği ve sorularınıza cevaplar sunuyorlar — tamamen ücretsiz.",
+    "teachers.cta": "Aşağıdaki profilleri inceleyin ve bugün bir öğretmenle iletişime geçin!",
+    "teachers.yearsExp": "yıl deneyim",
+    "teachers.email": "E-posta",
   },
 };
 
