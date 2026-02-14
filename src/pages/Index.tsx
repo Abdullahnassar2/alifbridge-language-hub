@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { BookOpen, Star, Trophy, ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.png";
 import WhyArabicSection from "@/components/WhyArabicSection";
+import FAQSection from "@/components/FAQSection";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -141,6 +142,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQSection />
 
       {/* CTA */}
       <section className="py-20 px-4">
