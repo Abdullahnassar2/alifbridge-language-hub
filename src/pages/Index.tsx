@@ -2,6 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { BookOpen, Star, Trophy, ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.png";
+import WhyArabicSection from "@/components/WhyArabicSection";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -46,6 +47,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Why Arabic is Special */}
+      <WhyArabicSection />
 
       {/* Features */}
       <section className="py-16 px-4">
