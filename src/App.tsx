@@ -10,6 +10,7 @@ import BackgroundLogo from "@/components/BackgroundLogo";
 import Index from "./pages/Index";
 import Courses from "./pages/Courses";
 import Learn from "./pages/Learn";
+import Alphabet from "./pages/Alphabet";
 import Login from "./pages/Login";
 import Blog from "./pages/Blog";
 import Support from "./pages/Support";
@@ -33,6 +34,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/courses" element={<Courses />} />
               <Route path="/learn" element={<Learn />} />
+              <Route path="/alphabet" element={<Alphabet />} />
               <Route path="/login" element={<Login />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/support" element={<Support />} />
