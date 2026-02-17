@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Lock, BookOpen } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Lock, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
+import AlphabetLearning from "@/components/AlphabetLearning";
 
 const courses = [
   {
@@ -80,8 +81,18 @@ const courses = [
   },
 ];
 
+const ALPHABET_LESSON = "Arabic Alphabet (أ ب ت)";
+
 const Courses = () => {
   const { t } = useLanguage();
+  const [expandedLesson, setExpandedLesson] = useState<string | null>(null);
+
+  const handleLessonClick = (lesson: string, unlocked: boolean) => {
+    if (!unlocked) return;
+    if (lesson === ALPHABET_LESSON) {
+      setExpandedLesson(expandedLesson === lesson ? null : lesson);
+    }
+  };
 
   return (
     <div className="relative z-10 py-12 px-4">
@@ -115,31 +126,51 @@ const Courses = () => {
                   </div>
                 )}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {course.lessons.map((lesson, li) => (
-                    <div
-                      key={li}
-                      className={`flex items-center gap-2 p-3 rounded-lg border text-sm ${
-                        course.unlocked
-                          ? "border-border hover:bg-secondary cursor-pointer transition-colors"
-                          : "border-border/50 opacity-50"
-                      }`}
-                    >
-                      {course.unlocked ? (
-                        <BookOpen className="w-4 h-4 text-accent flex-shrink-0" />
-                      ) : (
-                        <Lock className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                      )}
-                      <span className="text-foreground">{lesson}</span>
-                    </div>
-                  ))}
+                  {course.lessons.map((lesson, li) => {
+                    const isAlphabet = lesson === ALPHABET_LESSON && course.unlocked;
+                    const isExpanded = expandedLesson === lesson;
+                    return (
+                      <div
+                        key={li}
+                        onClick={() => handleLessonClick(lesson, course.unlocked)}
+                        className={`flex items-center gap-2 p-3 rounded-lg border text-sm ${
+                          course.unlocked
+                            ? isAlphabet
+                              ? `border-accent/50 ${isExpanded ? "bg-accent/5" : "hover:bg-secondary"} cursor-pointer transition-colors`
+                              : "border-border hover:bg-secondary cursor-pointer transition-colors"
+                            : "border-border/50 opacity-50"
+                        }`}
+                      >
+                        {course.unlocked ? (
+                          <BookOpen className="w-4 h-4 text-accent flex-shrink-0" />
+                        ) : (
+                          <Lock className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                        )}
+                        <span className="text-foreground flex-1">{lesson}</span>
+                        {isAlphabet && (
+                          isExpanded
+                            ? <ChevronUp className="w-4 h-4 text-accent flex-shrink-0" />
+                            : <ChevronDown className="w-4 h-4 text-accent flex-shrink-0" />
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
+
+                {/* Inline Alphabet Learning */}
+                {course.unlocked && expandedLesson === ALPHABET_LESSON && course.level === "beginner" && (
+                  <div className="mt-4 border-t border-border pt-4">
+                    <AlphabetLearning onClose={() => setExpandedLesson(null)} />
+                  </div>
+                )}
+
                 {course.unlocked && (
-                  <Link
-                    to="/learn"
+                  <a
+                    href="/learn"
                     className="mt-6 inline-flex items-center gap-2 px-6 py-2.5 rounded-lg gradient-gold text-accent-foreground font-semibold hover:opacity-90 transition-opacity"
                   >
                     {t("courses.start")}
-                  </Link>
+                  </a>
                 )}
               </div>
             </div>
