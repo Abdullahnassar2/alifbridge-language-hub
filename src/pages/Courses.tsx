@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Lock, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
 import AlphabetLearning from "@/components/AlphabetLearning";
+import GreetingsLearning from "@/components/GreetingsLearning";
 
 const courses = [
   {
@@ -82,6 +83,8 @@ const courses = [
 ];
 
 const ALPHABET_LESSON = "Arabic Alphabet (أ ب ت)";
+const GREETINGS_LESSON = "Basic Greetings";
+const EXPANDABLE_LESSONS = [ALPHABET_LESSON, GREETINGS_LESSON];
 
 const Courses = () => {
   const { t } = useLanguage();
@@ -89,7 +92,7 @@ const Courses = () => {
 
   const handleLessonClick = (lesson: string, unlocked: boolean) => {
     if (!unlocked) return;
-    if (lesson === ALPHABET_LESSON) {
+    if (EXPANDABLE_LESSONS.includes(lesson)) {
       setExpandedLesson(expandedLesson === lesson ? null : lesson);
     }
   };
@@ -127,7 +130,7 @@ const Courses = () => {
                 )}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {course.lessons.map((lesson, li) => {
-                    const isAlphabet = lesson === ALPHABET_LESSON && course.unlocked;
+                    const isExpandable = EXPANDABLE_LESSONS.includes(lesson) && course.unlocked;
                     const isExpanded = expandedLesson === lesson;
                     return (
                       <div
@@ -135,7 +138,7 @@ const Courses = () => {
                         onClick={() => handleLessonClick(lesson, course.unlocked)}
                         className={`flex items-center gap-2 p-3 rounded-lg border text-sm ${
                           course.unlocked
-                            ? isAlphabet
+                            ? isExpandable
                               ? `border-accent/50 ${isExpanded ? "bg-accent/5" : "hover:bg-secondary"} cursor-pointer transition-colors`
                               : "border-border hover:bg-secondary cursor-pointer transition-colors"
                             : "border-border/50 opacity-50"
@@ -147,7 +150,7 @@ const Courses = () => {
                           <Lock className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                         )}
                         <span className="text-foreground flex-1">{lesson}</span>
-                        {isAlphabet && (
+                        {isExpandable && (
                           isExpanded
                             ? <ChevronUp className="w-4 h-4 text-accent flex-shrink-0" />
                             : <ChevronDown className="w-4 h-4 text-accent flex-shrink-0" />
@@ -161,6 +164,13 @@ const Courses = () => {
                 {course.unlocked && expandedLesson === ALPHABET_LESSON && course.level === "beginner" && (
                   <div className="mt-4 border-t border-border pt-4">
                     <AlphabetLearning onClose={() => setExpandedLesson(null)} />
+                  </div>
+                )}
+
+                {/* Inline Greetings Learning */}
+                {course.unlocked && expandedLesson === GREETINGS_LESSON && course.level === "beginner" && (
+                  <div className="mt-4 border-t border-border pt-4">
+                    <GreetingsLearning onClose={() => setExpandedLesson(null)} />
                   </div>
                 )}
 
