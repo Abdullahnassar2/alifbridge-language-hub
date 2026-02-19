@@ -16,6 +16,7 @@ import Support from "./pages/Support";
 import Dashboard from "./pages/Dashboard";
 import Teachers from "./pages/Teachers";
 import PlacementTest from "./pages/PlacementTest";
+import CoursePage from "./pages/CoursePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/teachers" element={<Teachers />} />
               <Route path="/placement-test" element={<PlacementTest />} />
+              <Route path="/course/:slug" element={<CoursePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
