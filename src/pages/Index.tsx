@@ -40,7 +40,7 @@ const Index = () => {
               {t("hero.cta")} <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
-              to="/learn"
+              to="/placement-test"
               className="inline-flex items-center gap-2 px-8 py-3 rounded-xl border-2 border-foreground text-foreground font-semibold text-lg hover:bg-foreground hover:text-background transition-colors"
             >
               {t("hero.placement")}
