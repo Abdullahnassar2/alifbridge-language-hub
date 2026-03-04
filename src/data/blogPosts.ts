@@ -36,8 +36,10 @@ export interface BlogPost {
 import blogGreetingsImg from "@/assets/blog-greetings.jpg";
 import blogAlphabetImg from "@/assets/blog-alphabet.jpg";
 import blogFoodImg from "@/assets/blog-food.jpg";
+import { blogPostsBatch2 } from "./blogPostsBatch2";
+import { blogPostsBatch3 } from "./blogPostsBatch3";
 
-export const blogPosts: BlogPost[] = [
+const originalPosts: BlogPost[] = [
   {
     slug: "ways-to-say-ok-in-arabic",
     title: {
@@ -271,4 +273,10 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+];
+
+export const blogPosts: BlogPost[] = [
+  ...originalPosts,
+  ...blogPostsBatch2,
+  ...blogPostsBatch3,
 ];
