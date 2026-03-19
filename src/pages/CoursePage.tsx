@@ -124,6 +124,10 @@ const CoursePage = () => {
       return <GreetingsLearning onClose={handleComplete} />;
     }
 
+    if (lessonName === "Numbers 1-20") {
+      return <NumbersLearning onClose={handleComplete} />;
+    }
+
     // Placeholder for lessons without interactive content yet
     return (
       <div className="text-center py-20 space-y-4">
