@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowLeft } from "lucide-react";
 import AlphabetLearning from "@/components/AlphabetLearning";
 import GreetingsLearning from "@/components/GreetingsLearning";
+import NumbersLearning from "@/components/NumbersLearning";
 
 const slugify = (name: string) =>
   name
@@ -121,6 +122,10 @@ const CoursePage = () => {
 
     if (lessonName === "Basic Greetings") {
       return <GreetingsLearning onClose={handleComplete} />;
+    }
+
+    if (lessonName === "Numbers 1-20") {
+      return <NumbersLearning onClose={handleComplete} />;
     }
 
     // Placeholder for lessons without interactive content yet
