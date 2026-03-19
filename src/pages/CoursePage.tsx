@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowLeft } from "lucide-react";
 import AlphabetLearning from "@/components/AlphabetLearning";
 import GreetingsLearning from "@/components/GreetingsLearning";
+import NumbersLearning from "@/components/NumbersLearning";
 
 const slugify = (name: string) =>
   name
