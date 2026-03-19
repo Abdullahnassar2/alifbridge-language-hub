@@ -229,6 +229,18 @@ export const translations: Record<Language, Record<string, string>> = {
     "greetings.writePrompt": "Type the transliteration of this expression:",
     "greetings.typeTransliteration": "e.g. Marḥaban, Shukran...",
     "greetings.allComplete": "All Expressions Complete! 🎉",
+    // Numbers
+    "numbers.title": "Learn Numbers 1–20",
+    "numbers.subtitle": "Master Arabic numbers with pronunciation, visuals, and quizzes",
+    "numbers.mcqPrompt": "What is the Arabic word for this number?",
+    "numbers.audioPrompt": "Listen and identify the number:",
+    "numbers.playAudio": "Play Sound",
+    "numbers.imagePrompt": "Count the items — what number is this?",
+    "numbers.countItems": "Count the items above",
+    "numbers.writePrompt": "Write this number in Arabic:",
+    "numbers.writeHint": "Type the Arabic word (e.g. واحد)",
+    "numbers.typePlaceholder": "اكتب الرقم...",
+    "numbers.allComplete": "Numbers Complete! 🎉",
   },
   ar: {
     "nav.home": "الرئيسية",
